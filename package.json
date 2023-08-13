@@ -1,0 +1,36 @@
+{
+    "name": "wp-playground-blueprint-builder",
+    "version": "1.0.0",
+    "description": "UI Tool to build WordPress Playground Blueprint",
+    "main": "index.js",
+    "scripts": {
+      "build": "wp-scripts build --webpack-no-externals",
+      "check-engines": "wp-scripts check-engines",
+      "check-licenses": "wp-scripts check-licenses",
+      "format": "wp-scripts format",
+      "lint:css": "wp-scripts lint-style",
+      "lint:js": "wp-scripts lint-js",
+      "lint:md:docs": "wp-scripts lint-md-docs",
+      "lint:pkg-json": "wp-scripts lint-pkg-json",
+      "packages-update": "wp-scripts packages-update",
+      "start": "wp-scripts start --webpack-no-externals"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/lubusIN/wp-playground-blueprint-builder.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/lubusIN/wp-playground-blueprint-builder/issues"
+    },
+    "homepage": "https://github.com/lubusIN/wp-playground-blueprint-builder#readme",
+    "devDependencies": {
+      "@wordpress/scripts": "^26.9.0",
+      "@wordpress/components": "^25.4.0"
+    },
+    "dependencies": {
+      "@wordpress/dom-ready": "^3.38.0",
+      "@wordpress/element": "^5.15.0"
+    }
+  }

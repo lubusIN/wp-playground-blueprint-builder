@@ -1,0 +1,1 @@
+{"version":3,"file":"index.css","mappings":";;;AAAA;IACI,iCAAiC;AACrC,C","sources":["webpack://wp-playground-blueprint-builder/./src/app.css"],"sourcesContent":["body {\n    font-family: 'Poppins',sans-serif;\n}"],"names":[],"sourceRoot":""}
