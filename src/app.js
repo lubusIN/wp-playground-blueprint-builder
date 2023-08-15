@@ -3,12 +3,14 @@ import {
     ButtonGroup,
     Card,
     CardHeader,
-    CardBody,
+    CardMedia,
     __experimentalGrid as Grid,
     __experimentalHStack as HStack,
     __experimentalText as Text,
     __experimentalHeading as Heading,
 } from '@wordpress/components';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import sampleBluePrint from './sample-blueprint';
 
 function App() {
     return (
@@ -30,13 +32,15 @@ function App() {
                         </HStack>
                     </ButtonGroup>
                 </CardHeader>
-                <CardBody>
+                <CardMedia>
                     <Grid columns={3} templateColumns="repeat(2, 1fr) 2fr">
                         <Text>Steps Library</Text>
                         <Text>Steps List</Text>
-                        <Text>Blueprint Json</Text>
+                        <SyntaxHighlighter language="json" wrapLongLines={true} customStyle={{margin: 0}}>
+                            {JSON.stringify(sampleBluePrint, null, "\t")}
+                        </SyntaxHighlighter>
                     </Grid>
-                </CardBody>
+                </CardMedia>
             </Card>
         </>
     );
