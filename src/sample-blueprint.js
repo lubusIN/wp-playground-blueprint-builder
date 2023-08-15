@@ -17,11 +17,24 @@ let blueprint = {
             password: 'password',
         },
         {
-            step: 'installPlugin',
+            step: "installPlugin",
             pluginZipFile: {
-                resource: 'wordpress.org/plugins',
-                slug: 'friends',
+                resource: "wordpress.org/plugins",
+                slug: "gutenberg"
             },
+            options: {
+                activate: true
+            }
+        },
+        {
+            step: "installTheme",
+            pluginZipFile: {
+                resource: "wordpress.org/themes",
+                slug: "pendant"
+            },
+            options: {
+                activate: true
+            }
         },
     ],
 };
