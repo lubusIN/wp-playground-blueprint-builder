@@ -15,7 +15,7 @@ function App() {
         <>
             <Card>
                 <CardHeader id="app-header">
-                    <Header />
+                    <Header blueprint={sampleBluePrint}/>
                 </CardHeader>
                 <CardMedia>
                     <Grid columns={3} templateColumns="repeat(2, 1fr) 2fr">
