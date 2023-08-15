@@ -8,10 +8,10 @@ background-image: url(data:image/jpg;base64,/9j/4AAQSkZJRgABAQABLAEsAAD/4QCMRXhp
             backdrop-filter: blur(7px);
     background-size: cover;
     background-attachment: fixed;
+    margin: 20px;
 }
 
 #root {
-    margin: 20px;
     border-radius: 8px;
     overflow: hidden;
 }
