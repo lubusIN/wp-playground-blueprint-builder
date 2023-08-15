@@ -2,6 +2,7 @@ import {
     Button,
     TextControl,
     RadioControl,
+    ToggleControl,
     __experimentalHStack as HStack,
     __experimentalVStack as VStack,
     __experimentalNavigationMenu as NavigationMenu,
@@ -13,6 +14,7 @@ import { useState } from '@wordpress/element';
 
 function InstallTheme() {
     const [resourceType, setResourceType] = useState('wordpress.org/themes');
+    const [activate, setActivate] = useState(true);
 
     const options = [
         { label: 'Url', value: 'url' },
@@ -52,11 +54,20 @@ function InstallTheme() {
                             label="Path"
                         />
                     }
+
+                    <ToggleControl
+                        label="Activate"
+                        checked={activate}
+                        onChange={setActivate}
+                    />
+                    
                     <HStack>
                         <Button variant="primary" icon={addCard}>
                             Add
                         </Button>
                     </HStack>
+
+
                 </VStack>
             </NavigationItem>
         </NavigationMenu>

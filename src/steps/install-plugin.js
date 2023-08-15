@@ -2,6 +2,7 @@ import {
     Button,
     TextControl,
     RadioControl,
+    ToggleControl,
     __experimentalHStack as HStack,
     __experimentalVStack as VStack,
     __experimentalNavigationMenu as NavigationMenu,
@@ -12,6 +13,7 @@ import { useState } from '@wordpress/element';
 
 function InstallPlugin() {
     const [resourceType, setResourceType] = useState('wordpress.org/plugins');
+    const [activate, setActivate] = useState(true);
 
     const options = [
         { label: 'Url', value: 'url' },
@@ -50,6 +52,13 @@ function InstallPlugin() {
                             label="Path"
                         />
                     }
+
+                    <ToggleControl
+                        label="Activate"
+                        checked={activate}
+                        onChange={setActivate}
+                    />
+
                     <HStack>
                         <Button variant="primary" icon={addCard}>
                             Add
