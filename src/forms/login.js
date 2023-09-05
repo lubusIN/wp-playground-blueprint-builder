@@ -1,20 +1,20 @@
+/**
+ * WordPress Dependencies
+ */
 import { useContext } from '@wordpress/element';
+import { TextControl } from '@wordpress/components';
 
-import {
-    TextControl,
-} from '@wordpress/components';
-
+/**
+ * Internal Dependencies
+ */
 import { BlueprintContext } from "../data";
 
+/**
+ * Render Login Form Component
+ */
 function LoginForm() {
-    const formDefault = {
-        step: 'login',
-        username: '',
-        password: ''
-    };
-
     const {
-        selectedItem : {isEdit, data},
+        selectedItem: { isEdit, data, formDefault },
         formData = isEdit ? data : formDefault,
         setFormData
     } = useContext(BlueprintContext);

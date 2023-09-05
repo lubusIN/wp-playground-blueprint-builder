@@ -1,16 +1,17 @@
+/**
+ * WordPress Dependencies
+ */
 import {
-    Button,
     TextControl,
     RadioControl,
     ToggleControl,
-    __experimentalHStack as HStack,
     __experimentalVStack as VStack,
-    __experimentalNavigationMenu as NavigationMenu,
-    __experimentalNavigationItem as NavigationItem,
 } from '@wordpress/components';
-import { addCard } from "@wordpress/icons";
 import { useState } from '@wordpress/element';
 
+/**
+ * Export Install Plugin Form Component
+ */
 function InstallPlugin() {
     const [resourceType, setResourceType] = useState('wordpress.org/plugins');
     const [activate, setActivate] = useState(true);

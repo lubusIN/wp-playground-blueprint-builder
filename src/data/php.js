@@ -1,3 +1,6 @@
+/**
+ * PHP Version Options
+ */
 const phpVersions = [
     {
         label: 'latest',

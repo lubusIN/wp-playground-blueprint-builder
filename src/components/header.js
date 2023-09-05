@@ -1,3 +1,6 @@
+/**
+ * WordPress Dependencies
+ */
 import { useState, useContext } from '@wordpress/element';
 import {
     Modal,
@@ -9,8 +12,15 @@ import {
     __experimentalHeading as Heading,
 } from '@wordpress/components';
 import { Icon, wordpress, copy, download, globe, settings } from "@wordpress/icons";
+
+/**
+ * Internal Dependencies
+ */
 import { phpVersions, wpVersions, BlueprintContext } from "../data";
 
+/**
+ * Render Header Component
+ */
 function Header() {
     const { blueprint, setBlueprint } = useContext( BlueprintContext );
 

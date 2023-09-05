@@ -1,3 +1,6 @@
+/**
+ * WP Version Options
+ */
 const wpVersions = [
     {
         label: 'latest',

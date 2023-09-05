@@ -1,16 +1,18 @@
+/**
+ * WordPress Dependencies
+ */
+import { useState } from '@wordpress/element';
 import {
-    Button,
     TextControl,
     RadioControl,
     ToggleControl,
-    __experimentalHStack as HStack,
     __experimentalVStack as VStack,
-    __experimentalNavigationMenu as NavigationMenu,
-    __experimentalNavigationItem as NavigationItem,
-} from '@wordpress/components';
-import { addCard } from "@wordpress/icons";
-import { useState } from '@wordpress/element';
 
+} from '@wordpress/components';
+
+/**
+ * Render Install Theme Form Component
+ */
 function InstallThemes() {
     const [resourceType, setResourceType] = useState('wordpress.org/themes');
     const [activate, setActivate] = useState(true);

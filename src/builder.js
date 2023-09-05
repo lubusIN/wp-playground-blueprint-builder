@@ -1,3 +1,6 @@
+/**
+ * WordPress Dependencies
+ */
 import { useContext } from '@wordpress/element';
 import {
     Card,
@@ -6,12 +9,20 @@ import {
     __experimentalGrid as Grid,
 } from '@wordpress/components';
 
+/**
+ * External Dependencies
+ */
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
-import { Header } from './components';
-import { Menu, List } from './steps';
+/**
+ * Internal Dependencies
+ */
+import { Header, Menu, Steps } from './components';
 import { BlueprintContext } from './data'
 
+/**
+ * Render Builder
+ */
 function Builder() {
     const { blueprint } = useContext( BlueprintContext );
 
@@ -23,7 +34,7 @@ function Builder() {
             <CardMedia>
                 <Grid columns={3} templateColumns="repeat(2, 1fr) 2fr">
                     <Menu />
-                    <List />
+                    <Steps />
                     <SyntaxHighlighter id="blueprint-code" language="json" wrapLongLines={true} customStyle={{ margin: 0 }}>
                         {JSON.stringify(blueprint, null, "\t")}
                     </SyntaxHighlighter>
