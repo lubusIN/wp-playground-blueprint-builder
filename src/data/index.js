@@ -7,3 +7,4 @@ export {default as wpVersions} from './wp';
 export {default as phpVersions} from './php';
 export {default as forms} from './forms';
 export {getForm} from './forms';
+export {allowEntry} from './forms';

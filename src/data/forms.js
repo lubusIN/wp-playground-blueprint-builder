@@ -8,6 +8,7 @@ import * as Forms from '../forms'
  */
 const forms = {
     login: {
+        once: true,
         title: 'Login',
         form: Forms.Login,
         formDefault: {
@@ -49,4 +50,9 @@ export default forms;
 
 export function getForm(step) {
     return forms[step];
+}
+
+export function allowEntry(step, once = false, blueprint) {
+    const hasEntry = blueprint.steps.some(entry => entry.step == step);
+    return once && hasEntry ? false: true;
 }

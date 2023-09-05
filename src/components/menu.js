@@ -14,13 +14,14 @@ import {
 /**
  * Internal Dependencies
  */
-import { BlueprintContext, forms, getForm } from "../data";
+import { BlueprintContext, forms, getForm, allowEntry } from "../data";
 
 /**
  * Render Menu Component
  */
 function Menu() {
     const {
+        blueprint,
         selectedItem,
         setItem,
         formData,
@@ -39,16 +40,18 @@ function Menu() {
             <Navigation className="steps-navigation">
                 <NavigationMenu title="Steps" hasSearch>
                     {Object.entries(forms).map((form, index) => {
-                        const formKey = form[0]; // Form Key
-                        const {title} = form[1]; // Form Data
+                        const step = form[0]; // Form Key
+                        const { once, title } = form[1]; // Form Data
 
-                        return (
+                        console.log
+
+                        return (allowEntry(step, once, blueprint) &&
                             <NavigationItem
                                 key={index}
                                 title={title}
-                                item={`item-${formKey}`}
+                                item={`item-${step}`}
                                 onClick={() => {
-                                    setItem(getForm(formKey));
+                                    setItem(getForm(step));
                                     setIsOpen(true);
                                 }}
                             />
