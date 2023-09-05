@@ -1,11 +1,9 @@
 import {
-    Button,
-    TextControl,
-    __experimentalHStack as HStack,
     __experimentalNavigationMenu as NavigationMenu,
     __experimentalNavigationItem as NavigationItem,
 } from '@wordpress/components';
-import { addCard } from "@wordpress/icons";
+
+import {LoginForm} from '../components'
 
 function Login() {
     return (
@@ -15,13 +13,7 @@ function Login() {
             title="Login"
         >
             <NavigationItem item="login" className='step-form'>
-                <>
-                    <TextControl label="Username" />
-                    <TextControl label="Password" />
-                    <HStack>
-                        <Button variant="primary" icon={addCard}>Add</Button>
-                    </HStack>
-                </>
+                <LoginForm />
             </NavigationItem>
         </NavigationMenu>
     );
