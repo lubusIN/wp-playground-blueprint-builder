@@ -1,39 +1,102 @@
+import { useContext, createElement } from '@wordpress/element';
 import {
+    Button,
+    Modal,
     __experimentalNavigation as Navigation,
     __experimentalNavigationMenu as NavigationMenu,
     __experimentalNavigationItem as NavigationItem,
+    __experimentalHStack as HStack
 } from '@wordpress/components';
-
-import {Login, InstallPlugin, InstallTheme} from '../components';
+ 
+import { BlueprintContext } from "../data";
+import * as Forms from '../forms'
 
 function Menu() {
+    const { 
+        selectedItem, 
+        setItem,
+        formData, 
+        setFormData,
+        isOpen, 
+        setIsOpen,  
+        push, 
+        updateAt 
+    } = useContext(BlueprintContext);
+    const closeModal = () => {
+        setIsOpen(false);
+    };
+
     return (
-        <Navigation className="steps-navigation">
-            <NavigationMenu title="Steps" hasSearch>
-                <NavigationItem
-                    item="item-login"
-                    navigateToMenu="login-menu"
-                    title="Login"
-                />
+        <>
+            <Navigation className="steps-navigation">
+                <NavigationMenu title="Steps" hasSearch>
+                    <NavigationItem
+                        title="Login"
+                        item="item-login"
+                        onClick={() => {
+                            setItem({
+                                title: 'Login',
+                                form: Forms.Login,
+                                isEdit: false,
+                                data: null
+                            });
+                            setIsOpen(true);
+                        }}
+                    />
 
-                <NavigationItem
-                    item="item-install-plugin"
-                    navigateToMenu="install-plugin-menu"
-                    title="Install Plugin"
-                />
+                    <NavigationItem
+                        title="Install Plugin"
+                        item="item-install-plugin"
+                        onClick={() => {
+                            setItem({
+                                title: 'Install Theme',
+                                form: Forms.InstallPlugin,
+                                data: null
+                            });
+                            setIsOpen(true);
+                        }}
+                    />
 
-                <NavigationItem
-                    item="item-install-theme"
-                    navigateToMenu="install-theme-menu"
-                    title="Install Theme"
-                />
-            </NavigationMenu>
+                    <NavigationItem
+                        title="Install Theme"
+                        item="item-install-theme"
+                        onClick={() => {
+                            setItem({
+                                title: 'Install Theme',
+                                form: Forms.InstallTheme,
+                                data: null
+                            });
+                            setIsOpen(true);
+                        }}
+                    />
+                </NavigationMenu>
+            </Navigation>
+            {isOpen && (
+                <Modal title={selectedItem.title} onRequestClose={closeModal}>
+                    {createElement(selectedItem.form)}
 
-            <Login />
-            <InstallPlugin />
-            <InstallTheme />
+                    <HStack>
+                        {
+                            !selectedItem.data && (
+                                <Button variant="primary" onClick={() => {
+                                    push(formData);
+                                    setIsOpen(false);
+                                    setFormData(undefined);
+                                }}>Add</Button>
+                            )
+                        }
 
-        </Navigation>
+                        {
+                            !!selectedItem.data && (
+                                <Button variant="primary">Update</Button>
+                            )
+                        }
+                        <Button onClick={closeModal}>Cancel</Button>
+                    </HStack>
+
+                </Modal>
+            )}
+        </>
     );
 }
 

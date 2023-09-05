@@ -1,18 +1,27 @@
-import { useState } from '@wordpress/element';
+import { useContext } from '@wordpress/element';
 import {
-    Button,
     __experimentalHeading as Heading,
     __experimentalItemGroup as ItemGroup,
-    __experimentalItem as Item,
-    __experimentalView as View,
     __experimentalHStack as HStack,
     __experimentalConfirmDialog as ConfirmDialog
 } from '@wordpress/components';
-import { edit, closeSmall } from "@wordpress/icons"
+
+import { BlueprintContext } from "../data";
+import { ListItem } from '../steps';
 
 function List() {
-    const [isOpen, setOpen] = useState(false);
-
+    const {
+        blueprint,
+        selectedItem,
+        setItem,
+        formData,
+        setFormData,
+        isConfirm,
+        setIsConfirm,
+        push,
+        updateAt,
+        removeAt
+    } = useContext(BlueprintContext);
     return (
         <>
             <ItemGroup
@@ -22,46 +31,19 @@ function List() {
                 size="large"
                 style={{ marginTop: "10px" }}
             >
-                <Item>
-                    <HStack>
-                        <View>login</View>
-                        <HStack alignment='right' expanded={false}>
-                            <Button icon={edit} size="compact" />
-                            <Button
-                                icon={closeSmall}
-                                size="compact"
-                                onClick={() => setOpen(true)}
-                            />
-                        </HStack>
-                    </HStack>
-                </Item>
-                <Item>
-                    <HStack>
-                        <View>installPlugin</View>
-                        <HStack alignment='right' expanded={false}>
-                            <Button icon={edit} size="compact" />
-                            <Button icon={closeSmall} size="compact" />
-                        </HStack>
-                    </HStack>
-                </Item>
-                <Item>
-                    <HStack>
-                        <View>installTheme</View>
-                        <HStack alignment='right' expanded={false}>
-                            <Button icon={edit} size="compact" />
-                            <Button icon={closeSmall} size="compact" />
-                        </HStack>
-                    </HStack>
-                </Item>
+                {
+                    blueprint.steps.map((item, index) => <ListItem data={item} index={index} key={index} />)
+                }
+
             </ItemGroup>
 
             <ConfirmDialog
-                isOpen={isOpen}
+                isOpen={isConfirm}
                 onConfirm={() => {
-                    alert('Delete Confirmed!');
-                    setOpen(false);
+                    removeAt(selectedItem.index);
+                    setIsConfirm(false);
                 }}
-                onCancel={() => setOpen(false)}>
+                onCancel={() => setIsConfirm(false)}>
                 <HStack>
                     <Heading level={4}>Would you like to Delete this step?</Heading>
                 </HStack>

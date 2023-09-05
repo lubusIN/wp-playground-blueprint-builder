@@ -1,4 +1,4 @@
-import { useState } from '@wordpress/element';
+import { useState, useContext } from '@wordpress/element';
 import {
     Modal,
     Button,
@@ -9,9 +9,11 @@ import {
     __experimentalHeading as Heading,
 } from '@wordpress/components';
 import { Icon, wordpress, copy, download, globe, settings } from "@wordpress/icons";
-import { phpVersions, wpVersions } from "../data";
+import { phpVersions, wpVersions, BlueprintContext } from "../data";
 
-function Header({ blueprint }) {
+function Header() {
+    const { blueprint, setBlueprint } = useContext( BlueprintContext );
+
     const [phpVersion, setPhpVersion] = useState(phpVersions[3].value);
     const [wpVersion, setWpVersion] = useState(wpVersions[0].value);
     const [Url, setUrl] = useState('/wp-admin/');
@@ -25,7 +27,15 @@ function Header({ blueprint }) {
 
     const [isOpen, setOpen] = useState(false);
     const openModal = () => setOpen(true);
-    const closeModal = () => setOpen(false);
+    const closeModal = () => {
+        blueprint.preferredVersions = {
+            php: phpVersion,
+            wp: wpVersion
+        };
+        blueprint.landingPage = Url;
+        setBlueprint({...blueprint});
+        setOpen(false);
+    };
 
     return (
         <>
@@ -61,14 +71,14 @@ function Header({ blueprint }) {
                     <SelectControl
                         label="Php"
                         options={phpVersions}
-                        onChange={({ selectedItem }) => setPhpVersion(selectedItem.key)}
+                        onChange={(selectedItem) => setPhpVersion(selectedItem)}
                         value={phpVersion}
                     />
 
                     <SelectControl
                         label="WP"
                         options={wpVersions}
-                        onChange={({ selectedItem }) => setWpVersion(selectedItem.key)}
+                        onChange={(selectedItem) => setWpVersion(selectedItem)}
                         value={wpVersion}
                     />
 

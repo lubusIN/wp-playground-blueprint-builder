@@ -20,3 +20,7 @@ background-image: url(data:image/jpg;base64,/9j/4AAQSkZJRgABAQABLAEsAAD/4QCMRXhp
 .step-form {
     margin: 0 15px;
 }
+
+#blueprint-code {
+    min-height: calc(100vh - 140px);
+}
