@@ -21,6 +21,11 @@ background-image: url(data:image/jpg;base64,/9j/4AAQSkZJRgABAQABLAEsAAD/4QCMRXhp
     margin: 0 15px;
 }
 
+#steps-list {
+    overflow: scroll;
+}
+
+#steps-list,
 #blueprint-code {
-    min-height: calc(100vh - 140px);
+    height: calc(100vh - 140px);
 }

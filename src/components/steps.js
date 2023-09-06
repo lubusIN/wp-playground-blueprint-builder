@@ -29,6 +29,7 @@ function Steps() {
     return (
         <>
             <ItemGroup
+                id="steps-list"
                 isBordered
                 isRounded
                 isSeparated

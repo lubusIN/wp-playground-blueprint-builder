@@ -1,58 +1,114 @@
 /**
  * WordPress Dependencies
  */
+import { useContext } from '@wordpress/element';
 import {
     TextControl,
     RadioControl,
     ToggleControl,
     __experimentalVStack as VStack,
 } from '@wordpress/components';
-import { useState } from '@wordpress/element';
+
+/**
+ * Internal Dependencies
+ */
+import { BlueprintContext } from "../data";
 
 /**
  * Export Install Plugin Form Component
  */
 function InstallPlugin() {
-    const [resourceType, setResourceType] = useState('wordpress.org/plugins');
-    const [activate, setActivate] = useState(true);
+    const {
+        selectedItem: { isEdit, data, formDefault },
+        formData = isEdit ? data : formDefault,
+        setFormData
+    } = useContext(BlueprintContext);
+
+    const resource = formData?.pluginZipFile?.resource;
 
     const options = [
         { label: 'Url', value: 'url' },
-        { label: 'Core Theme', value: 'wordpress.org/plugins' },
+        { label: 'Core Plugin', value: 'wordpress.org/plugins' },
         { label: 'VFS', value: 'vfs' },
     ]
-    
+
     return (
         <VStack spacing={4}>
             <RadioControl
-                selected={resourceType}
+                selected={resource}
                 label="Resource"
                 options={options}
-                onChange={setResourceType}
+                onChange={(resource) => {
+                    setFormData({
+                        ...formData,
+                        pluginZipFile: {
+                            ...formData.pluginZipFile,
+                            resource
+                        }
+                    })
+                }}
             />
 
-            {resourceType == 'url' &&
+            {resource == 'url' &&
                 <TextControl
                     label="Url"
+                    value={formData.pluginZipFile.url}
+                    onChange={(url) => {
+                        setFormData({
+                            ...formData,
+                            pluginZipFile: {
+                                resource,
+                                url
+                            }
+                        })
+                    }}
                 />
             }
 
-            {resourceType == 'wordpress.org/plugins' &&
+            {resource == 'wordpress.org/plugins' &&
                 <TextControl
                     label="Slug"
+                    value={formData.pluginZipFile.slug}
+                    onChange={(slug) => {
+                        setFormData({
+                            ...formData,
+                            pluginZipFile: {
+                                resource,
+                                slug
+                            }
+                        })
+                    }}
                 />
             }
 
-            {resourceType == 'vfs' &&
+            {resource == 'vfs' &&
                 <TextControl
                     label="Path"
+                    value={formData.pluginZipFile.path}
+                    onChange={(path) => {
+                        setFormData({
+                            ...formData,
+                            pluginZipFile: {
+                                resource,
+                                path
+                            }
+                        })
+                    }}
                 />
             }
 
             <ToggleControl
                 label="Activate"
-                checked={activate}
-                onChange={setActivate}
+                checked={formData.options.activate}
+                onChange={(activate) => {
+                    setFormData({
+                        ...formData,
+                        options: {
+                            ...formData.pluginZipFile.options,
+                            activate
+                        }
+                    })
+                }}
             />
         </VStack>
     );

@@ -1,7 +1,7 @@
 /**
  * WordPress Dependencies
  */
-import { useState } from '@wordpress/element';
+import { useContext } from '@wordpress/element';
 import {
     TextControl,
     RadioControl,
@@ -11,11 +11,21 @@ import {
 } from '@wordpress/components';
 
 /**
+ * Internal Dependencies
+ */
+import { BlueprintContext } from "../data";
+
+/**
  * Render Install Theme Form Component
  */
 function InstallThemes() {
-    const [resourceType, setResourceType] = useState('wordpress.org/themes');
-    const [activate, setActivate] = useState(true);
+    const {
+        selectedItem: { isEdit, data, formDefault },
+        formData = isEdit ? data : formDefault,
+        setFormData
+    } = useContext(BlueprintContext);
+
+    const resource = formData?.themeZipFile?.resource;
 
     const options = [
         { label: 'Url', value: 'url' },
@@ -26,34 +36,80 @@ function InstallThemes() {
     return (
         <VStack spacing={4}>
             <RadioControl
-                selected={resourceType}
+                selected={resource}
                 label="Resource"
                 options={options}
-                onChange={setResourceType}
+                onChange={(resource) => {
+                    setFormData({
+                        ...formData,
+                        themeZipFile: {
+                            ...formData.themeZipFile,
+                            resource
+                        }
+                    })
+                }}
             />
 
-            {resourceType == 'url' &&
+            {resource == 'url' &&
                 <TextControl
                     label="Url"
+                    value={formData.themeZipFile.url}
+                    onChange={(url) => {
+                        setFormData({
+                            ...formData,
+                            themeZipFile: {
+                                resource,
+                                url
+                            }
+                        })
+                    }}
                 />
             }
 
-            {resourceType == 'wordpress.org/themes' &&
+            {resource == 'wordpress.org/themes' &&
                 <TextControl
                     label="Slug"
+                    value={formData.themeZipFile.slug}
+                    onChange={(slug) => {
+                        setFormData({
+                            ...formData,
+                            themeZipFile: {
+                                resource,
+                                slug
+                            }
+                        })
+                    }}
                 />
             }
 
-            {resourceType == 'vfs' &&
+            {resource == 'vfs' &&
                 <TextControl
                     label="Path"
+                    value={formData.themeZipFile.path}
+                    onChange={(path) => {
+                        setFormData({
+                            ...formData,
+                            themeZipFile: {
+                                resource,
+                                path
+                            }
+                        })
+                    }}
                 />
             }
 
             <ToggleControl
                 label="Activate"
-                checked={activate}
-                onChange={setActivate}
+                checked={formData.options.activate}
+                onChange={(activate) => {
+                    setFormData({
+                        ...formData,
+                        options: {
+                            ...formData.themeZipFile.options,
+                            activate
+                        }
+                    })
+                }}
             />
         </VStack>
     );

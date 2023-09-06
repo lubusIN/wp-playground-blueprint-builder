@@ -36,7 +36,7 @@ const forms = {
         form: Forms.InstallTheme,
         formDefault: {
             step: "installTheme",
-            pluginZipFile: {
+            themeZipFile: {
                 resource: 'wordpress.org/themes',
                 slug: ''
             },

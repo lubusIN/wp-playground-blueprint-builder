@@ -35,7 +35,7 @@ function Step({data, index}) {
                         size="compact"
                         onClick={() => {
                             setItem({
-                                ...getForm('login'),
+                                ...getForm(data.step),
                                 index,
                                 data,
                                 isEdit: true

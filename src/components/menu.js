@@ -43,8 +43,6 @@ function Menu() {
                         const step = form[0]; // Form Key
                         const { once, title } = form[1]; // Form Data
 
-                        console.log
-
                         return (allowEntry(step, once, blueprint) &&
                             <NavigationItem
                                 key={index}
