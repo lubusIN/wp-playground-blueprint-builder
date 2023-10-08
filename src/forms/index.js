@@ -15,3 +15,4 @@ export {default as ReplaceSite} from './replace-site';
 export {default as Remove} from './remove';
 export {default as RunPhp} from './run-php';
 export {default as SetPhpIniEntry} from './set-phpini-entry';
+export {default as Unzip} from './unzip';

@@ -139,6 +139,15 @@ const forms = {
             value: '',
         }
     },
+    unzip: {
+        title: 'Unzip',
+        form: Forms.Unzip,
+        formDefault: {
+            step: 'unzip',
+            extractToPath: '',
+            zipPath: '',
+        }
+    },
 };
 export default forms;
 
