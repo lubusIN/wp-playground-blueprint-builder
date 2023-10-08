@@ -45,6 +45,15 @@ const forms = {
             }
         }
     },
+    activatePlugin: {
+        title: 'Activate Plugin',
+        form: Forms.ActivatePlugin,
+        formDefault: {
+            step: 'activatePluginStep',
+            pluginName: '',
+            pluginPath: ''
+        }
+    },
 };
 export default forms;
 
