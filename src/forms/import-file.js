@@ -10,7 +10,7 @@ import { TextControl } from '@wordpress/components';
 import { BlueprintContext } from "../data";
 
 /**
- * Render Activate Theme Form Component
+ * Render Import File Form Component
  */
 function ImportFile() {
     const {

@@ -10,7 +10,7 @@ import { TextareaControl } from '@wordpress/components';
 import { BlueprintContext } from "../data";
 
 /**
- * Render Activate Theme Form Component
+ * Render Run Php Form Component
  */
 function RunPhp() {
     const {

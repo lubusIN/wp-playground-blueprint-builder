@@ -130,6 +130,15 @@ const forms = {
             code: '',
         }
     },
+    setPhpIniEntry: {
+        title: 'Set PHP Ini',
+        form: Forms.SetPhpIniEntry,
+        formDefault: {
+            step: 'setPhpIniEntry',
+            key: '',
+            value: '',
+        }
+    },
 };
 export default forms;
 

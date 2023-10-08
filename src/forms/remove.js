@@ -10,7 +10,7 @@ import { TextControl } from '@wordpress/components';
 import { BlueprintContext } from "../data";
 
 /**
- * Render Activate Theme Form Component
+ * Render Remove File Directory Form Component
  */
 function Remove() {
     const {

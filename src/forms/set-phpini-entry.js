@@ -10,9 +10,9 @@ import { TextControl } from '@wordpress/components';
 import { BlueprintContext } from "../data";
 
 /**
- * Render Copy Form Component
+ * Render Activate Plugin Form Component
  */
-function Copy() {
+function SetPhpIniEntry() {
     const {
         selectedItem: { isEdit, data, formDefault },
         formData = isEdit ? data : formDefault,
@@ -22,18 +22,17 @@ function Copy() {
     return (
         <>
             <TextControl
-                label="From Path"
-                value={formData.fromPath}
-                onChange={(value) => setFormData({ ...formData, fromPath: value })}
+                label="Key"
+                value={formData.key}
+                onChange={(value) => setFormData({ ...formData, key: value })}
             />
-
             <TextControl
-                label="To Path"
-                value={formData.toPath}
-                onChange={(value) => setFormData({ ...formData, toPath: value })}
+                label="Value"
+                value={formData.value}
+                onChange={(value) => setFormData({ ...formData, value: value })}
             />
         </>
     );
 }
 
-export default Copy;
+export default SetPhpIniEntry;
