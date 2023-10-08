@@ -105,6 +105,15 @@ const forms = {
             toPath: '',
         }
     },
+    replaceSite: {
+        once: true,
+        title: 'Replace Site',
+        form: Forms.ReplaceSite,
+        formDefault: {
+            step: 'replaceSite',
+            fullSiteZip: '',
+        }
+    },
 };
 export default forms;
 

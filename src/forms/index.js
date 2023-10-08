@@ -11,3 +11,4 @@ export {default as DefineSiteUrl} from './define-site-url';
 export {default as ImportFile} from './import-file';
 export {default as Mkdir} from './mkdir';
 export {default as Move} from './move';
+export {default as ReplaceSite} from './replace-site';
