@@ -71,6 +71,23 @@ const forms = {
             toPath: '',
         }
     },
+    defineSiteUrl: {
+        once: true,
+        title: 'Define Site Url',
+        form: Forms.DefineSiteUrl,
+        formDefault: {
+            step: 'defineSiteUrl',
+            siteUrl: '',
+        }
+    },
+    importFile: {
+        title: 'Import File',
+        form: Forms.ImportFile,
+        formDefault: {
+            step: 'importFile',
+            file: '',
+        }
+    },
 };
 export default forms;
 
