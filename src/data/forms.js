@@ -62,6 +62,15 @@ const forms = {
             themeFolderName: '',
         }
     },
+    copy: {
+        title: 'Copy',
+        form: Forms.Copy,
+        formDefault: {
+            step: 'cp',
+            fromPath: '',
+            toPath: '',
+        }
+    },
 };
 export default forms;
 
