@@ -49,9 +49,17 @@ const forms = {
         title: 'Activate Plugin',
         form: Forms.ActivatePlugin,
         formDefault: {
-            step: 'activatePluginStep',
+            step: 'activatePlugin',
             pluginName: '',
             pluginPath: ''
+        }
+    },
+    activateTheme: {
+        title: 'Activate Theme',
+        form: Forms.ActivateTheme,
+        formDefault: {
+            step: 'activateTheme',
+            themeFolderName: '',
         }
     },
 };
