@@ -157,6 +157,15 @@ const forms = {
             data: '',
         }
     },
+    // DefineConfigConsts: {
+    //     title: 'Define Config Constants',
+    //     form: Forms.DefineConfigConsts,
+    //     formDefault: {
+    //         step: 'config',
+    //         virtualize: '',
+    //         consts: [],
+    //     }
+    // },
 };
 export default forms;
 

@@ -29,7 +29,7 @@
         "@wordpress/scripts": "^26.9.0"
     },
     "dependencies": {
-        "@uidotdev/usehooks": "^2.2.0",
+        "@uidotdev/usehooks": "^2.3.1",
         "@wordpress/components": "^25.4.0",
         "@wordpress/element": "^5.15.0",
         "@wordpress/icons": "^9.30.0",

@@ -10,7 +10,7 @@ import { TextControl } from '@wordpress/components';
 import { BlueprintContext } from "../data";
 
 /**
- * Render Copy Form Component
+ * Render Write File Form Component
  */
 function WriteFile() {
     const {

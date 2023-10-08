@@ -17,3 +17,4 @@ export {default as RunPhp} from './run-php';
 export {default as SetPhpIniEntry} from './set-phpini-entry';
 export {default as Unzip} from './unzip';
 export {default as WriteFile} from './write-file';
+export {default as DefineConfigConsts} from './define-config-consts';

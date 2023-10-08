@@ -12,8 +12,12 @@ background-image: url(data:image/jpg;base64,/9j/4AAQSkZJRgABAQABLAEsAAD/4QCMRXhp
 }
 
 #root {
-    border-radius: 8px;
     overflow: hidden;
+}
+
+#root,
+.components-modal__screen-overlay {
+    border-radius: 8px;
 }
 
 .steps-navigation {
