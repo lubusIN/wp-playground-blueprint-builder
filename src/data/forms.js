@@ -88,6 +88,14 @@ const forms = {
             file: '',
         }
     },
+    mkdir: {
+        title: 'Create Directory',
+        form: Forms.Mkdir,
+        formDefault: {
+            step: 'mkdir',
+            path: '',
+        }
+    },
 };
 export default forms;
 
