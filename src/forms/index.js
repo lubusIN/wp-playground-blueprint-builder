@@ -13,3 +13,4 @@ export {default as Mkdir} from './mkdir';
 export {default as Move} from './move';
 export {default as ReplaceSite} from './replace-site';
 export {default as Remove} from './remove';
+export {default as RunPhp} from './run-php';

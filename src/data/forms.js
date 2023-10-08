@@ -122,6 +122,14 @@ const forms = {
             path: '',
         }
     },
+    runPhp: {
+        title: 'Run PHP',
+        form: Forms.RunPhp,
+        formDefault: {
+            step: 'runPHP',
+            code: '',
+        }
+    },
 };
 export default forms;
 
