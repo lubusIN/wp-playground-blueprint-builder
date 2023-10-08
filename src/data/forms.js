@@ -63,7 +63,7 @@ const forms = {
         }
     },
     copy: {
-        title: 'Copy',
+        title: 'Copy file/directory',
         form: Forms.Copy,
         formDefault: {
             step: 'cp',
@@ -94,6 +94,15 @@ const forms = {
         formDefault: {
             step: 'mkdir',
             path: '',
+        }
+    },
+    move: {
+        title: 'Move file/directory',
+        form: Forms.Move,
+        formDefault: {
+            step: 'mv',
+            fromPath: '',
+            toPath: '',
         }
     },
 };
