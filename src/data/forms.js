@@ -148,6 +148,15 @@ const forms = {
             zipPath: '',
         }
     },
+    writeFile: {
+        title: 'Write File',
+        form: Forms.WriteFile,
+        formDefault: {
+            step: 'writeFile',
+            path: '',
+            data: '',
+        }
+    },
 };
 export default forms;
 
