@@ -114,6 +114,14 @@ const forms = {
             fullSiteZip: '',
         }
     },
+    remove: {
+        title: 'Remove file',
+        form: Forms.Remove,
+        formDefault: {
+            step: 'rm',
+            path: '',
+        }
+    },
 };
 export default forms;
 
