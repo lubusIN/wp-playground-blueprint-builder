@@ -13,7 +13,7 @@
         "lint:md:docs": "wp-scripts lint-md-docs",
         "lint:pkg-json": "wp-scripts lint-pkg-json",
         "packages-update": "wp-scripts packages-update",
-        "start": "wp-scripts start --webpack-no-externals"
+        "start": "wp-scripts start --webpack-no-externals --hot"
     },
     "repository": {
         "type": "git",
@@ -26,13 +26,13 @@
     },
     "homepage": "https://github.com/lubusIN/wp-playground-blueprint-builder#readme",
     "devDependencies": {
-        "@wordpress/scripts": "^26.9.0"
+        "@wordpress/scripts": "^26.15.0"
     },
     "dependencies": {
         "@uidotdev/usehooks": "^2.3.1",
-        "@wordpress/components": "^25.4.0",
-        "@wordpress/element": "^5.15.0",
-        "@wordpress/icons": "^9.30.0",
+        "@wordpress/components": "^25.10.0",
+        "@wordpress/element": "^5.21.0",
+        "@wordpress/icons": "^9.35.0",
         "react-syntax-highlighter": "^15.5.0"
     }
 }
